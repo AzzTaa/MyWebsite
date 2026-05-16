@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<!-- HTML5文档声明，使用zh-CN中文语言 -->
+<html lang="zh-CN">
+<head>
+    <!-- 字符编码设置为UTF-8，支持中文显示 -->
+    <meta charset="UTF-8">
+    <!-- 视口设置：宽度=device-width（自适应设备宽度），初始缩放比例=1.0 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 页面标题，显示在浏览器标签页上 -->
+    <title>Personal Portfolio</title>
+    <!-- 引入外部CSS样式表文件 -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ========== 固定顶部导航栏 ========== -->
+    <!-- 固定定位的页头，始终显示在页面顶部 -->
+    <header class="fixed-header">
+
+
+        <!-- 头部左侧区域：包含Logo符号和文字 -->
+        <div class="header-left">
+            <!-- Logo符号容器，使用SVG绘制三角形图标 -->
+            <div class="logo-symbol">
+                <!-- SVG绘制：40x40尺寸的黄色三角形 -->
+                <svg viewBox="0 0 40 40" width="40" height="40">
+                    <!-- 多边形点坐标：顶点(20,5)和底边两点(35,30)和(5,30)，填充黄色 -->
+                    <polygon points="20,5 35,30 5,30" fill="#f5c518"/>
+                </svg>
+            </div>
+            <!-- Logo文字部分 -->
+            <span class="logo-title">菲耶蒂娜</span>
+        </div>
+
+
+        <!-- 头部右侧区域：包含搜索栏和头像 -->
+        <div class="header-right">
+            <!-- 搜索栏容器 -->
+            <div class="search-bar">
+                <!-- 搜索输入框：type="text"文本输入，placeholder显示提示文字 -->
+                <input type="text" placeholder="搜索内容..." id="searchInput">
+                <!-- 搜索按钮：包含SVG搜索图标 -->
+                <button class="search-btn">
+                    <!-- SVG搜索图标：圆形+线条构成放大镜形状 -->
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <!-- 圆形：圆心(11,11)，半径7，灰色描边 -->
+                        <circle cx="11" cy="11" r="7" stroke="#888" stroke-width="2" fill="none"/>
+                        <!-- 线条：从(16,16)到(21,21)的对角线 -->
+                        <line x1="16" y1="16" x2="21" y2="21" stroke="#888" stroke-width="2"/>
+                    </svg>
+                </button>
+            </div>
+
+
+            <!-- 头像编辑区域容器 -->
+            <div class="avatar-edit" id="avatarEdit">
+                <!-- 头像图片：占位符图片，灰色背景黄色文字"AV" -->
+                <img src="https://via.placeholder.com/40x40/2d2d2d/f5c518?text=AV" alt="头像" class="avatar-img">
+                <!-- 头像悬停时显示的编辑图标遮罩层 -->
+                <div class="avatar-overlay">
+                    <!-- SVG编辑图标：铅笔形状 -->
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                        <!-- 铅笔路径：M开头，L连线，z闭合 -->
+                        <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="#fff"/>
+                    </svg>
+                </div>
+            </div>
+
+            
+        </div>
+
+
+    </header>
+
+
+
+    <!-- ========== 主内容区域 ========== -->
+    <!-- 页面主要内容容器 -->
+    <main class="main-content">
+        <!-- 内容包装器：包含轮播图和快捷导航 -->
+        <div class="content-wrapper">
+            <!-- 第一模块：图片轮播展示区 -->
+            <section class="carousel-section">
+                <!-- 轮播容器：包含所有轮播元素 -->
+                <div class="carousel-container" id="carouselContainer">
+                    <!-- 轮播轨道：包含所有轮播项 -->
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- 轮播项1：默认显示（active类） -->
+                        <div class="carousel-item active">
+                            <!-- 轮播图片：800x450尺寸，深灰背景黄色文字 -->
+                            <img src="https://via.placeholder.com/800x450/1a1a1a/f5c518?text=Slide+1" alt="展示图片1">
+                        </div>
+                        <!-- 轮播项2 -->
+                        <div class="carousel-item">
+                            <img src="https://via.placeholder.com/800x450/1a1a1a/f5c518?text=Slide+2" alt="展示图片2">
+                        </div>
+                        <!-- 轮播项3 -->
+                        <div class="carousel-item">
+                            <img src="https://via.placeholder.com/800x450/1a1a1a/f5c518?text=Slide+3" alt="展示图片3">
+                        </div>
+                        <!-- 轮播项4 -->
+                        <div class="carousel-item">
+                            <img src="https://via.placeholder.com/800x450/1a1a1a/f5c518?text=Slide+4" alt="展示图片4">
+                        </div>
+                    </div>
+
+                    <!-- 上一张按钮 -->
+                    <button class="carousel-btn prev-btn" id="prevBtn">
+                        <!-- SVG左箭头图标 -->
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <!-- 折线：三个点(15,18)、(9,12)、(15,6)构成左箭头 -->
+                            <polyline points="15,18 9,12 15,6" stroke="#f5c518" stroke-width="2" fill="none"/>
+                        </svg>
+                    </button>
+
+                    <!-- 下一张按钮 -->
+                    <button class="carousel-btn next-btn" id="nextBtn">
+                        <!-- SVG右箭头图标 -->
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <!-- 折线：三个点(9,18)、(15,12)、(9,6)构成右箭头 -->
+                            <polyline points="9,18 15,12 9,6" stroke="#f5c518" stroke-width="2" fill="none"/>
+                        </svg>
+                    </button>
+
+                    <!-- 轮播指示点容器：用于显示当前轮播位置 -->
+                    <div class="carousel-dots" id="carouselDots"></div>
+                </div>
+            </section>
+
+            <!-- 第二模块：快捷导航区 -->
+            <section class="quick-nav-section">
+                <!-- 快捷导航网格容器：6列布局 -->
+                <div class="quick-nav-grid">
+                    <!-- 导航项1：代码作品 -->
+                    <div class="nav-item" data-index="0">
+                        <!-- 导航图标容器 -->
+                        <div class="nav-icon">
+                            <!-- SVG图标：带勾方框代表代码审核 -->
+                            <svg viewBox="0 0 48 48" width="48" height="48">
+                                <!-- 矩形：位置(8,8)，宽高32，圆角4 -->
+                                <rect x="8" y="8" width="32" height="32" rx="4" fill="none" stroke="#f5c518" stroke-width="2"/>
+                                <!-- 折线：勾选标记(16,24)->(22,30)->(32,18) -->
+                                <polyline points="16,24 22,30 32,18" stroke="#f5c518" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <!-- 导航标签文字 -->
+                        <span class="nav-label">代码作品</span>
+                    </div>
+
+                    <!-- 导航项2：游戏记录 -->
+                    <div class="nav-item" data-index="1">
+                        <div class="nav-icon">
+                            <!-- SVG图标：圆形+三角形代表播放/游戏 -->
+                            <svg viewBox="0 0 48 48" width="48" height="48">
+                                <!-- 圆形：圆心(24,24)，半径16 -->
+                                <circle cx="24" cy="24" r="16" fill="none" stroke="#f5c518" stroke-width="2"/>
+                                <!-- 三角形：播放图标(20,16)->(32,24)->(20,32) -->
+                                <polygon points="20,16 32,24 20,32" fill="#f5c518"/>
+                            </svg>
+                        </div>
+                        <span class="nav-label">游戏记录</span>
+                    </div>
+
+                    <!-- 导航项3：生活分享 -->
+                    <div class="nav-item" data-index="2">
+                        <div class="nav-icon">
+                            <!-- SVG图标：带横线的矩形代表文档/博客 -->
+                            <svg viewBox="0 0 48 48" width="48" height="48">
+                                <!-- 矩形：位置(6,10)，宽36高28，圆角2 -->
+                                <rect x="6" y="10" width="36" height="28" rx="2" fill="none" stroke="#f5c518" stroke-width="2"/>
+                                <!-- 横线：分隔线(6,18)->(42,18) -->
+                                <line x1="6" y1="18" x2="42" y2="18" stroke="#f5c518" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <span class="nav-label">生活分享</span>
+                    </div>
+
+                    <!-- 导航项4：个人简历 -->
+                    <div class="nav-item" data-index="3">
+                        <div class="nav-icon">
+                            <!-- SVG图标：人像轮廓代表个人简历 -->
+                            <svg viewBox="0 0 48 48" width="48" height="48">
+                                <!-- 圆形：头部(24,20)，半径8 -->
+                                <circle cx="24" cy="20" r="8" fill="none" stroke="#f5c518" stroke-width="2"/>
+                                <!-- 弧线：肩膀和身体(12,40)->(24,30)->(36,40) -->
+                                <path d="M12 40 Q12 30 24 30 Q36 30 36 40" fill="none" stroke="#f5c518" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <span class="nav-label">个人简历</span>
+                    </div>
+
+                    <!-- 导航项5：项目展示 -->
+                    <div class="nav-item" data-index="4">
+                        <div class="nav-icon">
+                            <!-- SVG图标：六边形代表项目/工程 -->
+                            <svg viewBox="0 0 48 48" width="48" height="48">
+                                <!-- 六边形路径：(24,8)->(38,18)->(38,38)->(24,42)->(10,38)->(10,18) -->
+                                <path d="M24 8 L38 18 L38 38 L24 42 L10 38 L10 18 Z" fill="none" stroke="#f5c518" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <span class="nav-label">项目展示</span>
+                    </div>
+
+                    <!-- 导航项6：技能树 -->
+                    <div class="nav-item" data-index="5">
+                        <div class="nav-icon">
+                            <!-- SVG图标：六面体代表技能/层级 -->
+                            <svg viewBox="0 0 48 48" width="48" height="48">
+                                <!-- 六边形主体：(8,12)->(24,6)->(40,12)->(40,36)->(24,42)->(8,36) -->
+                                <path d="M8 12 L24 6 L40 12 L40 36 L24 42 L8 36 Z" fill="none" stroke="#f5c518" stroke-width="2"/>
+                                <!-- 对角线1：左侧面分割(8,12)->(24,18) -->
+                                <line x1="8" y1="12" x2="24" y2="18" stroke="#f5c518" stroke-width="2"/>
+                                <!-- 对角线2：右侧面分割(40,12)->(24,18) -->
+                                <line x1="40" y1="12" x2="24" y2="18" stroke="#f5c518" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <span class="nav-label">技能树</span>
+                    </div>
+
+                    <!-- 导航项7：留言板 -->
+                    <div class="nav-item" data-index="6">
+                        <div class="nav-icon">
+                            <!-- SVG图标：对话框/留言板形状 -->
+                            <svg viewBox="0 0 48 48" width="48" height="48">
+                                <!-- 矩形：留言框(10,6)，宽28高36，圆角2 -->
+                                <rect x="10" y="6" width="28" height="36" rx="2" fill="none" stroke="#f5c518" stroke-width="2"/>
+                                <!-- 横线1：第一行文字(16,14)->(32,14) -->
+                                <line x1="16" y1="14" x2="32" y2="14" stroke="#f5c518" stroke-width="2"/>
+                                <!-- 横线2：第二行文字(16,22)->(32,22) -->
+                                <line x1="16" y1="22" x2="32" y2="22" stroke="#f5c518" stroke-width="2"/>
+                                <!-- 横线3：第三行文字(16,30)->(24,30) -->
+                                <line x1="16" y1="30" x2="24" y2="30" stroke="#f5c518" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <span class="nav-label">留言板</span>
+                    </div>
+
+                    <!-- 导航项8：时间线 -->
+                    <div class="nav-item" data-index="7">
+                        <div class="nav-icon">
+                            <!-- SVG图标：时钟代表时间线 -->
+                            <svg viewBox="0 0 48 48" width="48" height="48">
+                                <!-- 圆形：表盘(24,24)，半径16 -->
+                                <circle cx="24" cy="24" r="16" fill="none" stroke="#f5c518" stroke-width="2"/>
+                                <!-- 折线：时针和分针(24,14)->(24,24)->(32,28) -->
+                                <path d="M24 14 L24 24 L32 28" stroke="#f5c518" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <span class="nav-label">时间线</span>
+                    </div>
+
+                    <!-- 导航项9：收藏夹 -->
+                    <div class="nav-item" data-index="8">
+                        <div class="nav-icon">
+                            <!-- SVG图标：星形代表收藏 -->
+                            <svg viewBox="0 0 48 48" width="48" height="48">
+                                <!-- 十角星形路径 -->
+                                <polygon points="24,6 30,18 42,20 34,30 36,42 24,36 12,42 14,30 6,20 18,18" fill="none" stroke="#f5c518" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <span class="nav-label">收藏夹</span>
+                    </div>
+
+                    <!-- 导航项10：关于我 -->
+                    <div class="nav-item" data-index="9">
+                        <div class="nav-icon">
+                            <!-- SVG图标：房屋代表个人主页/关于 -->
+                            <svg viewBox="0 0 48 48" width="48" height="48">
+                                <!-- 房屋路径：屋顶+墙体(12,20)->(24,10)->(36,20)->(36,38)->(12,38) -->
+                                <path d="M12 38 L12 20 L24 10 L36 20 L36 38 Z" fill="none" stroke="#f5c518" stroke-width="2"/>
+                                <!-- 横线：门(18,28)->(30,28) -->
+                                <line x1="18" y1="28" x2="30" y2="28" stroke="#f5c518" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <span class="nav-label">关于我</span>
+                    </div>
+
+                    <!-- 导航项11：相册 -->
+                    <div class="nav-item" data-index="10">
+                        <div class="nav-icon">
+                            <!-- SVG图标：相框代表相册 -->
+                            <svg viewBox="0 0 48 48" width="48" height="48">
+                                <!-- 矩形：相框(8,14)，宽32高24，圆角2 -->
+                                <rect x="8" y="14" width="32" height="24" rx="2" fill="none" stroke="#f5c518" stroke-width="2"/>
+                                <!-- 圆形：照片人物位置(18,26)，半径4 -->
+                                <circle cx="18" cy="26" r="4" fill="#f5c518"/>
+                                <!-- 横线1：地面/草地(26,22)->(36,22) -->
+                                <line x1="26" y1="22" x2="36" y2="22" stroke="#f5c518" stroke-width="2"/>
+                                <!-- 横线2：地面/草地(26,28)->(36,28) -->
+                                <line x1="26" y1="28" x2="36" y2="28" stroke="#f5c518" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <span class="nav-label">相册</span>
+                    </div>
+
+                    <!-- 导航项12：更多 -->
+                    <div class="nav-item" data-index="11">
+                        <div class="nav-icon">
+                            <!-- SVG图标：十字/加号代表更多选项 -->
+                            <svg viewBox="0 0 48 48" width="48" height="48">
+                                <!-- 圆形：中心点(24,24)，半径4 -->
+                                <circle cx="24" cy="24" r="4" fill="#f5c518"/>
+                                <!-- 竖线：上(24,8)->(24,16) -->
+                                <line x1="24" y1="8" x2="24" y2="16" stroke="#f5c518" stroke-width="2"/>
+                                <!-- 竖线：下(24,32)->(24,40) -->
+                                <line x1="24" y1="32" x2="24" y2="40" stroke="#f5c518" stroke-width="2"/>
+                                <!-- 横线：左(8,24)->(16,24) -->
+                                <line x1="8" y1="24" x2="16" y2="24" stroke="#f5c518" stroke-width="2"/>
+                                <!-- 横线：右(32,24)->(40,24) -->
+                                <line x1="32" y1="24" x2="40" y2="24" stroke="#f5c518" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <span class="nav-label">更多</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ========== 侧边栏区域 ========== -->
+        <!-- 侧边栏容器：包含公告和更新日志 -->
+        <aside class="sidebar">
+            <!-- 公告模块 -->
+            <div class="announcement-module">
+                <!-- 模块标题区 -->
+                <div class="module-header">
+                    <!-- 公告标题：带emoji图标 -->
+                    <h3>📢 公告</h3>
+                </div>
+                <!-- 模块内容区 -->
+                <div class="module-content">
+                    <!-- 公告条目：最新公告（带"最新"标签） -->
+                    <div class="announcement-item latest">
+                        <!-- "最新"状态标签 -->
+                        <span class="tag">最新</span>
+                        <!-- 公告标题 -->
+                        <h4>网站正式上线</h4>
+                        <!-- 公告日期 -->
+                        <p>2026-05-12</p>
+                        <!-- 公告正文内容 -->
+                        <p class="announcement-text">个人作品集网站正式发布！欢迎访问和交流。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 更新日志模块 -->
+            <div class="changelog-module">
+                <!-- 模块标题区 -->
+                <div class="module-header">
+                    <!-- 更新日志标题：带emoji图标 -->
+                    <h3>📋 更新日志</h3>
+                </div>
+                <!-- 模块内容区 -->
+                <div class="module-content">
+                    <!-- 更新条目1 -->
+                    <div class="changelog-item">
+                        <!-- 版本号标签 -->
+                        <span class="version">v1.0.1</span>
+                        <!-- 更新日期 -->
+                        <p class="changelog-date">2026-05-10</p>
+                        <!-- 更新内容列表 -->
+                        <ul class="changelog-list">
+                            <li>优化了页面加载速度</li>
+                            <li>修复了移动端显示问题</li>
+                        </ul>
+                    </div>
+
+                    <!-- 更新条目2 -->
+                    <div class="changelog-item">
+                        <span class="version">v1.0.0</span>
+                        <p class="changelog-date">2026-05-01</p>
+                        <ul class="changelog-list">
+                            <li>完成基础框架搭建</li>
+                            <li>添加图片轮播功能</li>
+                            <li>添加快捷导航模块</li>
+                        </ul>
+                    </div>
+
+                    <!-- 更新条目3 -->
+                    <div class="changelog-item">
+                        <span class="version">v0.9.0</span>
+                        <p class="changelog-date">2026-04-15</p>
+                        <ul class="changelog-list">
+                            <li>项目初始化</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- ========== 图片上传模态框 ========== -->
+    <!-- 上传模态框：默认隐藏，点击头像时显示 -->
+    <div class="upload-modal" id="uploadModal">
+        <!-- 模态框内容容器 -->
+        <div class="modal-content">
+            <!-- 模态框头部：标题和关闭按钮 -->
+            <div class="modal-header">
+                <h3>上传图片</h3>
+                <!-- 关闭按钮：&times;是HTML实体乘号符号，用于显示×图标 -->
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <!-- 模态框主体：上传区域和预览区域 -->
+            <div class="modal-body">
+                <!-- 上传区域：可点击或拖拽上传 -->
+                <div class="upload-area" id="uploadArea">
+                    <!-- 文件输入框：type="file"，accept="image/*"只接受图片，multiple支持多选，hidden隐藏 -->
+                    <input type="file" id="fileInput" accept="image/*" multiple hidden>
+                    <!-- 上传提示文字 -->
+                    <p>点击或拖拽图片到此处上传</p>
+                    <!-- 选择文件按钮 -->
+                    <button class="upload-btn">选择文件</button>
+                </div>
+                <!-- 图片预览区域 -->
+                <div class="preview-area" id="previewArea"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== 页脚 ========== -->
+    <!-- 页面底部版权信息 -->
+    <footer class="footer">
+        <!-- 版权符号：&copy;是HTML实体版权符号 -->
+        <p>&copy; 2026 MyPortfolio. All rights reserved.</p>
+    </footer>
+
+    <!-- 引入外部JavaScript脚本文件 -->
+    <script src="script.js"></script>
+</body>
+</html>
